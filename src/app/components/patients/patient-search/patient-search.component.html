@@ -1,0 +1,6 @@
+<form class="ui form" [formGroup]="searchForm">
+  <div class="field">
+    <input (keyup)="searchByText(txt)" name="txt" (blur)="searchByText(txt)" class="prompt" type="text" placeholder="Search ..." formControlName="txt">
+  </div>
+</form>
+

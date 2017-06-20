@@ -1,0 +1,2 @@
+<app-login *ngIf="!auth.isAuthenticated()"></app-login>
+<app-manager *ngIf="auth.isAuthenticated()"></app-manager>

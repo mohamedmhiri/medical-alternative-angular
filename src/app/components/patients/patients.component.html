@@ -1,0 +1,245 @@
+<div class="ui center aligned basic segment">
+  <div class="ui fluid category search">
+    <div class="ui icon input">
+      <patient-search (searchEvent)="searchEvent($event)">
+      </patient-search>
+      <i class="search icon"></i>
+    </div>
+    <div class="results"></div>
+  </div>
+  <div class="ui horizontal divider">
+    <h2 class="ui center aligned icon header">
+      Patients Name Starts with
+    </h2>
+  </div>
+  <div class="ui stackable two column mobile only grid container">
+    <div class="row">
+      <div class="mobile only column">
+        <div class="ui mini pagination menu">
+          <div *ngFor="let a of alpha; let i = index">
+            <alpha-menu *ngIf="menuTest(i)==0" [alpha]="a" [index]="i" (alphaFilter)="filterByAlpha($event)">
+            </alpha-menu>
+          </div>
+        </div>
+      </div>
+      <div class="mobile only column">
+        <div class="ui mini pagination menu">
+          <div *ngFor="let a of alpha; let i = index">
+            <alpha-menu *ngIf="menuTest(i)==1" [alpha]="a" [index]="i" (alphaFilter)="filterByAlpha($event)">
+            </alpha-menu>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="mobile only column">
+        <div class="ui mini pagination menu">
+          <div *ngFor="let a of alpha; let i = index">
+            <alpha-menu *ngIf="menuTest(i)==2" [alpha]="a" [index]="i" (alphaFilter)="filterByAlpha($event)">
+            </alpha-menu>
+          </div>
+        </div>
+      </div>
+      <div class="mobile only column">
+        <div class="ui mini pagination menu">
+          <div *ngFor="let a of alpha; let i = index">
+            <alpha-menu *ngIf="menuTest(i)==3" [alpha]="a" [index]="i" (alphaFilter)="filterByAlpha($event)">
+            </alpha-menu>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ui grid">
+    <div class="ui computer only column">
+      <div class="ui mini pagination menu">
+        <alpha-menu *ngFor="let a of alpha; let i = index" [alpha]="a" [index]="i" (alphaFilter)="filterByAlpha($event)">
+        </alpha-menu>
+      </div>
+    </div>
+  </div>
+  <div class="ui grid">
+    <div class="row">
+      <div class="ui tablet only column">
+        <div class="ui mini pagination menu">
+          <div *ngFor="let a of alpha; let i = index">
+            <alpha-menu *ngIf="i<13" [alpha]="a" [index]="i" (alphaFilter)="filterByAlpha($event)">
+            </alpha-menu>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="ui tablet only column">
+        <div class="ui mini pagination menu">
+          <div *ngFor="let a of alpha; let i = index">
+            <alpha-menu *ngIf="i>=13" [alpha]="a" [index]="i" (alphaFilter)="filterByAlpha($event)">
+            </alpha-menu>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ui raised very padded text container segment">
+    <div class="ui fluid vertical animated large button" tabindex="0" [routerLink]="['../new/patient']">
+      <div class="hidden content">Add New Patient </div>
+      <div class="visible content">
+        <i class="large icons">
+          <i class="user icon"></i>
+          <i class="red corner plus icon"></i>
+        </i>
+      </div>
+    </div>
+    <table class="ui small celled striped selectable table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Date Joined</th>
+          <th>E-mail</th>
+          <th></th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let patient of entities">
+          <td>
+            <patient-name [patient]="patient"></patient-name>
+          </td>
+          <td>
+            <patient-date [patient]="patient"></patient-date>
+          </td>
+          <td></td>
+          <td></td>
+          <td>
+            <patient-action [patient]="patient"></patient-action>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!--<div class="ui raised very padded text container segment">-->
+<!--</div>-->
+<!--<div class="ui relaxed grid">
+  <div class="three column row">
+    <div class="column"></div>
+    <div class="column">
+      <div class="ui fluid category search">
+        <div class="ui icon input">
+          <patient-search (searchEvent)="searchEvent($event)">
+          </patient-search>
+          <i class="search icon"></i>
+        </div>
+      </div>
+    </div>
+    <div class="column"></div>
+  </div>
+      <div class="three column row">
+      <div class="mobile only column">
+        <div class="ui mini pagination menu">
+          <div *ngFor="let a of alpha; let i = index">
+            <alpha-menu *ngIf="menuTest(i)==0" [alpha]="a" [index]="i" (alphaFilter)="filterByAlpha($event)">
+            </alpha-menu>
+          </div>
+        </div>
+      </div>
+      <div class="mobile only column">
+        <div class="ui mini pagination menu">
+          <div *ngFor="let a of alpha; let i = index">
+            <alpha-menu *ngIf="menuTest(i)==1" [alpha]="a" [index]="i" (alphaFilter)="filterByAlpha($event)">
+            </alpha-menu>
+          </div>
+        </div>
+      </div>
+      <div class="mobile only column">
+        <div class="ui mini pagination menu">
+          <div *ngFor="let a of alpha; let i = index">
+            <alpha-menu *ngIf="menuTest(i)==2" [alpha]="a" [index]="i" (alphaFilter)="filterByAlpha($event)">
+            </alpha-menu>
+          </div>
+        </div>
+        <div class="mobile only column">
+          <div class="ui mini pagination menu">
+            <div *ngFor="let a of alpha; let i = index">
+              <alpha-menu *ngIf="menuTest(i)==3" [alpha]="a" [index]="i" (alphaFilter)="filterByAlpha($event)">
+              </alpha-menu>
+            </div>
+          </div>
+        </div>
+        <div class="ui computer only column">
+          <div class="ui mini pagination menu">
+            <alpha-menu *ngFor="let a of alpha; let i = index" [alpha]="a" [index]="i" (alphaFilter)="filterByAlpha($event)">
+            </alpha-menu>
+          </div>
+        </div>
+        <div class="ui tablet only column">
+          <div class="ui mini pagination menu">
+            <div *ngFor="let a of alpha; let i = index">
+              <alpha-menu *ngIf="i<13" [alpha]="a" [index]="i" (alphaFilter)="filterByAlpha($event)">
+              </alpha-menu>
+            </div>
+          </div>
+        </div>
+        <div class="ui tablet only column">
+          <div class="ui mini pagination menu">
+            <div *ngFor="let a of alpha; let i = index">
+              <alpha-menu *ngIf="i>=13" [alpha]="a" [index]="i" (alphaFilter)="filterByAlpha($event)">
+              </alpha-menu>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <div class="six column row">
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column">
+      <div class="ui fluid vertical animated large button" tabindex="0" [routerLink]="['../new/patient']">
+        <div class="hidden content">Add New Patient </div>
+        <div class="visible content">
+          <i class="large icons">
+          <i class="user icon"></i>
+          <i class="red corner plus icon"></i>
+          </i>
+        </div>
+      </div>
+    </div>
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+  </div>
+  <div class="eight column row">
+    <div class="two wide column"></div>
+    <div class="twelve wide column">
+      <table class="ui small celled striped selectable table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Date Joined</th>
+            <th>E-mail</th>
+            <th></th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let patient of entities">
+            <td>
+              <patient-name [patient]="patient"></patient-name>
+            </td>
+            <td>
+              <patient-date [patient]="patient"></patient-date>
+            </td>
+            <td></td>
+            <td></td>
+            <td>
+              <patient-action [patient]="patient"></patient-action>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="two wide column"></div>
+  </div>
+</div>-->

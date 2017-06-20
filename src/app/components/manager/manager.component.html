@@ -1,0 +1,36 @@
+<!--<app-login *ngIf="!auth.isAuthenticated()"></app-login>
+-->
+<div class="ui top inverted attached demo menu">
+    <a class="item" (click)="sidebar.toggle()">
+        <i class="sidebar icon"></i> Menu
+    </a>
+    <div class="right menu">
+        <div class="ui dropdown item" suiDropdown autoClose="disabled"><i class="user icon"></i>
+
+            Account <i class="dropdown icon"></i>
+            <div class="menu" suiDropdownMenu>
+                <a class="item" (click)="logout()">
+                    <i class="sign out icon"></i>Logout
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<sui-sidebar-container class="ui bottom attached segment">
+    <sui-sidebar class="inverted vertical" #sidebar>
+        <div class="item">
+            <img class="ui small avatar image" src="http://localhost/doctor.png">
+            <span>Doctor</span>
+        </div>
+        <a class="item" routerLink='stats'> <i class="line chart icon"></i>Statistics</a>
+        <a class="item" routerLink='patients'> <i class="users icon"></i>Patients</a>
+        <a class="item" routerLink='doctors'> <i class="doctor icon"></i>Doctors</a>
+        <a class="item" routerLink='appointments'> <i class="calendar icon"></i>Rendez-vous</a>
+    </sui-sidebar>
+    <sui-sidebar-sibling [isDimmedWhenVisible]="true">
+        <div>
+            <router-outlet class="ui basic segment"></router-outlet>
+        </div>
+    </sui-sidebar-sibling>
+</sui-sidebar-container>
+<app-footer></app-footer>

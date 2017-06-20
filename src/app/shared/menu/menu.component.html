@@ -1,0 +1,34 @@
+<div class="ui top inverted attached demo menu">
+    <a class="item" (click)="sidebar.toggle()">
+        <i class="sidebar icon"></i> Menu
+    </a>
+    <div class="right menu">
+    <div class="ui dropdown item">
+      Language <i class="dropdown icon"></i>
+      <div class="menu">
+        <a class="item">English</a>
+        <a class="item">Russian</a>
+        <a class="item">Spanish</a>
+      </div>
+    </div>
+    <div class="item">
+        <div class="ui primary button">Sign Up</div>
+    </div>
+  </div>
+</div>
+<sui-sidebar-container class="ui bottom attached segment">
+    <sui-sidebar class="inverted vertical" #sidebar>
+        <div class="item">
+            <img class="ui small avatar image" src="http://localhost/doctor.png">
+            <span>Doctor</span>
+        </div>
+        <a class="item" routerLink='stats'> <i class="line chart icon"></i>Statistics</a>
+        <a class="item" routerLink='patients'> <i class="users icon"></i>Patients</a>
+    </sui-sidebar>
+    <sui-sidebar-sibling [isDimmedWhenVisible]="true">
+        <div class="ui basic segment">
+            <router-outlet></router-outlet>
+        </div>
+    </sui-sidebar-sibling>
+</sui-sidebar-container>
+<app-footer></app-footer>

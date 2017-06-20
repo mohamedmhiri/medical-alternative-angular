@@ -1,0 +1,18 @@
+<button class="primary small ui icon button" [routerLink]="['../patient/update', patient._id]">
+    <i class="icons">
+        <i class="user icon"></i>
+        <i class="red corner write icon"></i>
+    </i>
+  </button>
+<button class="negative small ui icon button" [routerLink]="['../patient/del', patient._id]">
+    <i class="icons">
+        <i class="user icon"></i>
+        <i class="red corner remove icon"></i>
+    </i>
+</button>
+<button class="small ui icon button" [routerLink]="['../patient', patient._id]">
+    <i class="icons">
+        <i class="user icon"></i>
+        <i class="red corner search icon"></i>
+    </i>
+</button>

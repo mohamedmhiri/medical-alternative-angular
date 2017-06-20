@@ -1,0 +1,141 @@
+<div class="ui stackable four column grid" id="computer-login">
+  <div class="four wide column"></div>
+  <div class="four wide column"></div>
+  <div class="four wide column"></div>
+
+  <div class="computer only tablet only four wide column"></div>
+  <div class="computer only tablet only four wide column"></div>
+
+  <div class="computer only tablet only four wide column"></div>
+  <div class="computer only tablet only four wide column"></div>
+
+  <div class="column"></div>
+  <div class="column"></div>
+  <div class="eight wide computer nine wide tablet sixteen wide mobile column">
+    <sui-tabset>
+      <div [@tab] class="ui top attached tabular menu">
+        <a class="item" suiTabHeader="1">Log-in</a>
+        <a class="item" suiTabHeader="2">Sign-up</a>
+      </div>
+      <div class="ui bottom attached segment" suiTabContent="1">
+        <div [@form] class="ui middle aligned center aligned grid">
+          <div class="column">
+            <h2 class="ui teal image header">
+              <img src="http://localhost/logo.png" class="ui medium image">
+              <div class="content">
+                Log-in to your account
+              </div>
+            </h2>
+            <form class="ui large form" [formGroup]="loginForm" novalidate>
+              <div class="ui stacked segment">
+                <div class="field">
+                  <div class="ui left icon input">
+                    <i class="user icon"></i>
+                    <input type="text" name="email" placeholder="E-mail address" formControlName="email">
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="ui left icon input">
+                    <i class="lock icon"></i>
+                    <input type="password" name="password" placeholder="Password" formControlName="password">
+                  </div>
+                </div>
+                <button class="ui fluid large teal submit button" (keyup.enter)="validateLogin()" (click)="validateLogin()">Login</button>
+                <!--                <button class="ui fluid large teal submit button" (keyup.enter)="logout()" (click)="logout()">Logout</button>
+--></div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+      <div class="ui bottom attached segment" suiTabContent="2">
+        <div class="ui middle aligned center aligned grid">
+          <div class="column">
+            <h2 class="ui teal image header">
+              <img src="http://localhost/logo.png" class="image">
+              <div class="content">
+                New to us ? Sign Up
+              </div>
+            </h2>
+            <form class="ui large form" [formGroup]="signUpForm" novalidate>
+              <div class="ui stacked segment">
+                <div class="field">
+                  <div class="two fields">
+                    <div class="field">
+                        <input type="text" name="firstName" placeholder="First name" formControlName="firstName">
+                    </div>
+                    <div class="field">
+                        <input type="text" name="lastName" placeholder="Family name" formControlName="lastName">
+                    </div>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="ui left icon input">
+                    <i class="user icon"></i>
+                    <input type="text" name="email" placeholder="E-mail address" formControlName="email">
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="ui left icon input">
+                    <i class="call icon"></i>
+                    <input type="tel" name="tel" placeholder="Mobile number" formControlName="tel">
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="ui left icon input">
+                    <i class="lock icon"></i>
+                    <input type="password" name="password" placeholder="Password" formControlName="password">
+                  </div>
+                </div>
+                <button class="ui fluid large teal submit button" (keyup.enter)="validateSignup()" (click)="validateSignup()">Sign up</button>
+              </div>
+
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </sui-tabset>
+  </div>
+  <div class="sixteen wide column"></div>
+  <div class="sixteen wide column"></div>
+  <div class="sixteen wide column"></div>
+  <div class="sixteen wide column"></div>
+  <div class="sixteen wide column"></div>
+  <div class="sixteen wide column"></div>
+  <div class="sixteen wide column"></div>
+  <div class="sixteen wide column"></div>
+  <div class="sixteen wide column"></div>
+  <div class="sixteen wide column"></div>
+  <div class="sixteen wide column"></div>
+  <div class="sixteen wide column"></div>
+  <div class="sixteen wide column"></div>
+  <div class="sixteen wide column"></div>
+  <div class="sixteen wide column"></div>
+  <div class="sixteen wide column"></div>
+  <div class="sixteen wide column"></div>
+  <div class="sixteen wide column"></div>
+  <div class="sixteen wide column"></div>
+  <div class="sixteen wide column"></div>
+  <div class="sixteen wide column"></div>
+  <div class="sixteen wide column"></div>
+  <div class="sixteen wide column"></div>
+  <div class="sixteen wide column"></div>
+  <div class="sixteen wide column"></div>
+  <div class="sixteen wide column"></div>
+  <div class="sixteen wide column"></div>
+  <div class="sixteen wide column"></div>
+  <div class="sixteen wide column"></div>
+  <div class="sixteen wide column"></div>
+  <div class="sixteen wide column"></div>
+  <div class="sixteen wide column"></div>
+  <div class="sixteen wide column"></div>
+  <div class="sixteen wide column"></div>
+  <div class="sixteen wide column"></div>
+  <div class="sixteen wide column"></div>
+  <div class="sixteen wide column"></div>
+  <div class="sixteen wide column"></div>
+  <div class="sixteen wide column"></div>
+  <div class="sixteen wide column"></div>
+  <div class="sixteen wide column"></div>
+</div>
