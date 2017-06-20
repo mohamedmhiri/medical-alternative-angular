@@ -38,9 +38,7 @@ export class PatientAddComponent implements OnInit {
     this.patientForm = this.fb.group({
       firstName: [this.patient.firstName, [Validators.required, Validators.minLength(4), Validators.maxLength(24)]],
       lastName: [this.patient.lastName, [Validators.required]],
-      email: [this.patient.email, [Validators.pattern(`^[_A-Za-z0-9-\\+]+
-      (\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+
-      (\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$`)]],
+      email: [this.patient.email, [Validators.pattern(`.+\\@.+\\..{2,}`)]],
       cin: [this.patient.cin],
       gsm: [this.patient.gsm],
       gsm2: [this.patient.gsm2],
