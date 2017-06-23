@@ -14,6 +14,9 @@
             <div *ngIf="formErrors.firstName" class="ui negative message">
                 {{ formErrors.firstName }}
             </div>
+            <div *ngIf="formErrors.lastName" class="ui negative message">
+                {{ formErrors.lastName }}
+            </div>
         </div>
         <div class="field">
             <div class="fields">
@@ -29,6 +32,9 @@
             <div *ngIf="formErrors.email" class="ui negative message">
                 {{ formErrors.email }}
             </div>
+            <div *ngIf="formErrors.cin" class="ui negative message">
+                {{ formErrors.cin }}
+            </div>
         </div>
         <div class="field">
             <div class="fields">
@@ -41,32 +47,37 @@
                     <input type="text" name="gsm2" placeholder="+21612345678" formControlName="gsm2">
                 </div>
             </div>
+            <div *ngIf="formErrors.gsm" class="ui negative message">
+                {{ formErrors.gsm }}
+            </div>
+            <div *ngIf="formErrors.gsm2" class="ui negative message">
+                {{ formErrors.gsm2 }}
+            </div>    
         </div>
-        <div class="fields">
-            <div class="five wide field">
-                <label>Birth Day</label>
-                <div class="field">
+        <div class="field">
+            <div class="fields">
+                <div class="five wide field">
+                    <label>Birth Day</label>
                     <select class="ui fluid search selection dropdown" name="birthday" formControlName="birthday">
                         <i class="dropdown icon"></i>
                             <option *ngFor='let day of days.list' value="{{day}}">{{day}}</option>
                     </select>
                 </div>
-            </div>
-            <div class="eleven wide field">
-                <div class="two fields">
-                    <div class="field">
-                        <label>Birth Month</label>
-                        <select class="ui fluid search selection dropdown" name="birthmonth" formControlName="birthmonth">
-                            <i class="dropdown icon"></i>
-                                <option *ngFor='let month of months.list; let i = index' value="{{i+1}}">{{month}}</option>
-                        </select>
-                    </div>
-                    <div class="field">
-                        <label>Birth Year</label>
-                        <input type="text" name="birthyear" maxlength="4" placeholder="Year" formControlName="birthyear">
-                    </div>
+                <div class="six wide field">
+                    <label>Birth Month</label>
+                    <select class="ui fluid search selection dropdown" name="birthmonth" formControlName="birthmonth">
+                        <i class="dropdown icon"></i>
+                        <option *ngFor='let month of months.list; let i = index' value="{{i+1}}">{{month}}</option>
+                    </select>
+                </div>
+                <div class="five wide field">
+                   <label>Birth Year</label>
+                   <input type="text" name="birthyear" maxlength="4" placeholder="Year" formControlName="birthyear"> 
                 </div>
             </div>
+            <div *ngIf="formErrors.birthyear" class="ui negative message">
+                {{ formErrors.birthyear }}
+            </div> 
         </div>
         <div class="field">
             <div class="fields">
@@ -120,7 +131,7 @@
                 <input type="text" placeholder="123456789" formControlName="ssiNum" name="ssiNum">
             </div>
         </div>
-        <div [hidden]="submitted" class="ui button" tabindex="0" (click)="pushPatient()">Add Patient
+        <div class="{{buttonClass}}" tabindex="0" (click)="pushPatient()">Add Patient
         </div>
     </form>
 </div>
