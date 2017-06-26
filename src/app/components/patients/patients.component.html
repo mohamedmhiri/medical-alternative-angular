@@ -69,7 +69,7 @@
         </div>
       </div>
     </div>
-    
+
     <div class="row">
       <div class="ui tablet only column">
         <div class="ui mini pagination menu">
@@ -87,17 +87,67 @@
       <div class="visible content">
         <i class="large icons">
           <i class="user icon"></i>
-          <i class="red corner plus icon"></i>
+        <i class="red corner plus icon"></i>
         </i>
       </div>
     </div>
-    <table class="ui small celled striped selectable table">
+    <br>
+    <br>
+    <!--<div class="ui link cards">
+      <div *ngFor="let patient of entities" class="card">
+        <patient-list [patient]="patient"></patient-list>
+      </div>
+    </div>-->
+    <!--    <div class="ui divided relaxed items">
+      <div *ngFor="let patient of entities" class="item">
+        <patient-list class="middle aligned content" [patient]="patient"></patient-list>
+      </div>
+    </div>-->
+    <!--<div class="ui animated relaxed divided list">
+      <div *ngFor="let patient of entities" class="item">
+        <div class="content">
+          <div class="header">
+            <patient-list [patient]="patient"></patient-list>
+          </div>
+        </div>
+      </div>
+    </div>-->
+    <div class="ui tall stacked padded segment">
+      <sui-accordion [closeOthers]="false">
+        <sui-accordion-panel *ngFor="let patient of entities">
+          <div title>
+            <div class="ui stackable two column divided grid container">
+              <div class="six wide column">
+                <div class="ui two column grid container">
+                  <div class="one wide column">
+                    <i class="dropdown icon"></i>
+                  </div>
+                  <div class="thirteen wide column">
+                    <patient-name [patient]="patient"></patient-name>
+                  </div>
+                </div>
+              </div>
+              <div class="five wide column">
+                <patient-date [patient]="patient"></patient-date>
+              </div>
+              <div class="five wide column">
+                <patient-action [patient]="patient"></patient-action>
+              </div>
+            </div>
+          </div>
+          <div content>
+            <p>This is the final panel.</p>
+          </div>
+        </sui-accordion-panel>
+      </sui-accordion>
+    </div>
+
+
+    <table class="ui small selectable table">
       <thead>
         <tr>
           <th>Name</th>
           <th>Date Joined</th>
-          <th>E-mail</th>
-          <th></th>
           <th>Action</th>
         </tr>
       </thead>
@@ -109,8 +159,6 @@
           <td>
             <patient-date [patient]="patient"></patient-date>
           </td>
-          <td></td>
-          <td></td>
           <td>
             <patient-action [patient]="patient"></patient-action>
           </td>

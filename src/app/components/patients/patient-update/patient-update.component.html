@@ -1,3 +1,137 @@
-<p>
-  patient-update works!
-</p>
+<div class="ui raised very padded text container segment">
+    <form class="ui form" [formGroup]="patientForm">
+        <h2 class="ui dividing header">Update Patient Form</h2>
+        <div class="field">
+            <label>Full Name</label>
+            <div class="two fields">
+                <div class="field">
+                    <input type="text" name="firstName" placeholder="First Name" formControlName="firstName">
+                </div>
+                <div class="field">
+                    <input type="text" name="lastName" placeholder="Last Name" formControlName="lastName">
+                </div>
+            </div>
+            <div *ngIf="formErrors.firstName" class="ui negative message">
+                {{ formErrors.firstName }}
+            </div>
+            <div *ngIf="formErrors.lastName" class="ui negative message">
+                {{ formErrors.lastName }}
+            </div>
+        </div>
+        <div class="field">
+            <div class="fields">
+                <div class="eight wide field">
+                    <label>E-mail</label>
+                    <input type="email" name="email" placeholder="name@domain.com" formControlName="email">
+                </div>
+                <div class="eight wide field">
+                    <label>CIN</label>
+                    <input type="text" name="cin" placeholder="123456789" formControlName="cin">
+                </div>
+            </div>
+            <div *ngIf="formErrors.email" class="ui negative message">
+                {{ formErrors.email }}
+            </div>
+            <div *ngIf="formErrors.cin" class="ui negative message">
+                {{ formErrors.cin }}
+            </div>
+        </div>
+        <div class="field">
+            <div class="fields">
+                <div class="eight wide field">
+                    <label>Gsm 1</label>
+                    <input type="text" name="gsm" placeholder="+21612345678" formControlName="gsm">
+                </div>
+                <div class="eight wide field">
+                    <label>Gsm 2</label>
+                    <input type="text" name="gsm2" placeholder="+21612345678" formControlName="gsm2">
+                </div>
+            </div>
+            <div *ngIf="formErrors.gsm" class="ui negative message">
+                {{ formErrors.gsm }}
+            </div>
+            <div *ngIf="formErrors.gsm2" class="ui negative message">
+                {{ formErrors.gsm2 }}
+            </div>    
+        </div>
+        <div class="field">
+            <div class="fields">
+                <div class="five wide field">
+                    <label>Birth Day</label>
+                    <select class="ui fluid search selection dropdown" name="birthday" formControlName="birthday">
+                        <i class="dropdown icon"></i>
+                            <option *ngFor='let day of days.list' value="{{day}}">{{day}}</option>
+                    </select>
+                </div>
+                <div class="six wide field">
+                    <label>Birth Month</label>
+                    <select class="ui fluid search selection dropdown" name="birthmonth" formControlName="birthmonth">
+                        <i class="dropdown icon"></i>
+                        <option *ngFor='let month of months.list; let i = index' value="{{i+1}}">{{month}}</option>
+                    </select>
+                </div>
+                <div class="five wide field">
+                   <label>Birth Year</label>
+                   <input type="text" name="birthyear" maxlength="4" placeholder="Year" formControlName="birthyear"> 
+                </div>
+            </div>
+            <div *ngIf="formErrors.birthyear" class="ui negative message">
+                {{ formErrors.birthyear }}
+            </div> 
+        </div>
+        <div class="field">
+            <div class="fields">
+                <div class="eight wide field">
+                    <label>Birth City</label>
+                    <select class="ui fluid search selection dropdown" name="birthCity" formControlName="birthCity">
+                    <i class="dropdown icon"></i>
+                        <option *ngFor="let city of cityName.cities" value="{{city}}">{{city}}</option>
+                </select>
+                </div>
+                <div class="eight wide field">
+                    <label>Gender</label>
+                    <select class="ui fluid search selection dropdown" name="gender" formControlName="gender">
+                        <i class="dropdown icon"></i>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="field">
+            <label>Personnal Address</label>
+            <textarea rows="2" style="margin-top: 0px; margin-bottom: 0px; height: 58px;" name="address" formControlName="address"></textarea>
+        </div>
+        <div class="two fields">
+            <div class="field">
+                <label>City</label>
+                <select class="ui fluid search selection dropdown" name="city" formControlName="city">
+                    <i class="dropdown icon"></i>
+                        <option *ngFor="let city of cityName.cities" value="{{city}}">{{city}}</option>
+                </select>
+            </div>
+            <div class="field">
+                <label>Country</label>
+                <select class="ui fluid search selection dropdown" name="country" formControlName="country">
+                    <i class="dropdown icon"></i>
+                        <option value="tn">Tunisia</option>
+                </select>
+            </div>
+        </div>
+        <div class="fields">
+            <div class="eight wide field">
+                <label>Sociel Security Insurance Type</label>
+                <select class="ui fluid search selection dropdown" name="ssiType" formControlName="ssiType">
+                        <i class="dropdown icon"></i>
+                            <option *ngFor="let ssi of ssiType.types" value="{{ssi}}">{{ssi}}</option>
+                    </select>
+            </div>
+            <div class="eight wide field">
+                <label>Sociel Security Insurance Number</label>
+                <input type="text" placeholder="123456789" formControlName="ssiNum" name="ssiNum">
+            </div>
+        </div>
+        <div class="{{buttonClass}}" tabindex="0" (click)="pushPatient()">Add Patient
+        </div>
+    </form>
+</div>

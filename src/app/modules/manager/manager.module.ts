@@ -1,3 +1,4 @@
+import { PatientListComponent } from './../../components/patients/patient-list/patient-list.component';
 import { PatientSearchComponent } from './../../components/patients/patient-search/patient-search.component';
 import { PatientViewComponent } from './../../components/patients/patient-view/patient-view.component';
 import { PatientDelComponent } from './../../components/patients/patient-del/patient-del.component';
@@ -47,7 +48,8 @@ import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
     PatientUpdateComponent,
     PatientDelComponent,
     PatientViewComponent,
-    PatientSearchComponent
+    PatientSearchComponent,
+    PatientListComponent
   ],
   exports: [
     NgxPaginationModule,

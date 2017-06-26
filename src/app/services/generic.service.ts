@@ -16,6 +16,11 @@ export class GenericService<Entity> {
       .map(this.extractData)
       .catch(this.handleError);
   }
+  public getOne(url: string): Observable<Entity> {
+    return this.http.get(url)
+      .map(this.extractData)
+      .catch(this.handleError)
+  }
   public create(entity: Entity, url: string): Observable<Entity> {
     return this.http.post(url, entity, this.options)
       .map(this.extractData)

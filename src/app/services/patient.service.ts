@@ -27,4 +27,7 @@ export class PatientService extends GenericService<Patient>{
     return this.http.get(`${this.url}search/${text}`)
     .map(res => res.json())
   }
+  public getOne(id: string): Observable<Patient> {
+    return super.getOne(`${this.url}${id}`)
+  }
 }
