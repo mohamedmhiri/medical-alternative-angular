@@ -42,6 +42,7 @@ export class PatientsComponent implements OnInit {
     return (item.firstName.charAt(0)== i || item.firstName.charAt(0)== i.toLowerCase()||item.lastName.charAt(0)== i || item.lastName.charAt(0)== i.toLowerCase())
   }*/
   public filterByAlpha(patients: Patient[]) {
+    this.add = 'hide'
     this.entities = patients
   }
 
@@ -58,6 +59,7 @@ export class PatientsComponent implements OnInit {
   }
 
   public searchEvent(patients: Patient[]) {
+    this.add = 'hide'
     console.log(patients)
     this.entities = patients
   }
@@ -81,7 +83,7 @@ export class PatientsComponent implements OnInit {
     this.add = 'insert'
   }
   public collapseAddForm() {
-    this.add = 'hide'
+    
   }
   
 
