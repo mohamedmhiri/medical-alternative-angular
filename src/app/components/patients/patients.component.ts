@@ -11,6 +11,7 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 })
 export class PatientsComponent implements OnInit {
 
+  private add: string
   private patientAction: string
   private total: number 
   private loading: boolean;
@@ -24,13 +25,14 @@ export class PatientsComponent implements OnInit {
 
   ngOnInit() {
     this.patientAction = ''
+    this.add=''
     this.alpha = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')
     // to be changed ==> list of patients with the most recent consultations
     /*this.patients = this.patientService.startsWith('A')
     this.patients.subscribe(data => {
       this.entities = data
     })*/
-    this.patientService.search('ello').subscribe(data => {
+    this.patientService.startsWith('A').subscribe(data => {
       this.entities = data
     })
   }
@@ -69,10 +71,18 @@ export class PatientsComponent implements OnInit {
   }
 
   public cancel (msg: string): string {
-    this.ngOnInit()
+    this.patientService.startsWith('A').subscribe(data => {
+      this.entities = data
+    })
     return this.patientAction = msg
   }
 
+  public addForm(): void {
+    this.add = 'insert'
+  }
+  public collapseAddForm() {
+    this.add = 'hide'
+  }
   
 
 }
