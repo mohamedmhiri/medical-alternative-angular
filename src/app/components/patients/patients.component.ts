@@ -11,27 +11,19 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 })
 export class PatientsComponent implements OnInit {
 
-  private p: number = 1;
+  private patientAction: string
   private total: number 
   private loading: boolean;
   private entities: Patient[]
-  private patients: Observable<Patient[]>
   private alpha: string[]
-  private response: Observable<{
-    entities: Patient[]
-    total: number
-  }>
-  private conf = { 
-    itemsPerPage: 10,
-    currentPage: this.p,
-    totalItems: this.total
-  }
+
   
   //private patients: Patient[]
 
   constructor(private patientService: PatientService) { }
 
   ngOnInit() {
+    this.patientAction = ''
     this.alpha = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')
     // to be changed ==> list of patients with the most recent consultations
     /*this.patients = this.patientService.startsWith('A')
@@ -67,5 +59,20 @@ export class PatientsComponent implements OnInit {
     console.log(patients)
     this.entities = patients
   }
+
+  public patientAct(msg: string): string {
+    return this.patientAction = msg
+  }
+
+  public viewAction(): string {
+    return this.patientAction = 'view'
+  }
+
+  public cancel (msg: string): string {
+    this.ngOnInit()
+    return this.patientAction = msg
+  }
+
+  
 
 }

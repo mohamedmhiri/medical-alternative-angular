@@ -1,5 +1,5 @@
 import { Patient } from './../../../models/patient';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'patient-action',
@@ -8,9 +8,14 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class PatientActionComponent implements OnInit {
   @Input() patient: Patient
+  @Output() action = new EventEmitter<string>()
   constructor() { }
 
   ngOnInit() {
+  }
+
+  public patientAction(msg: string): void {
+    this.action.emit(msg)
   }
 
 }

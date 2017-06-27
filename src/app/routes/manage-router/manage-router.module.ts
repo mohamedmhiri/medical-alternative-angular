@@ -14,28 +14,12 @@ import { RouterModule } from '@angular/router';
 
 const ROUTES = [
     {
-        path: '', 
-        component: StatsComponent
+      path: '', 
+      component: StatsComponent
     },
     {
-        path: 'patients',
-        component: PatientsComponent
-    },
-    {
-        path: 'patient/:id',
-        component: PatientViewComponent
-    },
-    {
-        path: 'new/patient',
-        component: PatientAddComponent
-    },
-    {
-        path: 'patient/update/:id',
-        component: PatientUpdateComponent
-    },
-    {
-        path: 'patient/del/:id',
-        component: PatientDelComponent
+      path: 'patients',
+      component: PatientsComponent
     },
     {
       path: 'stats',

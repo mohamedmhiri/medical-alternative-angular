@@ -8,7 +8,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit, AfterViewChecked, DoCheck } from '@angular/core';
 
 @Component({
-  selector: 'app-patient-add',
+  selector: 'patient-add',
   templateUrl: './patient-add.component.html',
   styleUrls: ['./patient-add.component.css'],
   providers: [PatientService]

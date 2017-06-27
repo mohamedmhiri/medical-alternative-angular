@@ -30,4 +30,10 @@ export class PatientService extends GenericService<Patient>{
   public getOne(id: string): Observable<Patient> {
     return super.getOne(`${this.url}${id}`)
   }
+  public update(patient: Patient): Observable<Patient> {
+    return super.update(patient, `${this.url}${patient._id}`)
+  }
+  public deleteOne(patient: Patient): Observable<Patient> {
+    return super.deleteOne(patient, `${this.url}${patient._id}`)
+  }
 }

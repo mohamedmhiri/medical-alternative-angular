@@ -91,203 +91,45 @@
         </i>
       </div>
     </div>
+    <div class="ui raised segment">
+      <patient-add></patient-add>
+    </div>
     <br>
     <br>
-    <!--<div class="ui link cards">
-      <div *ngFor="let patient of entities" class="card">
-        <patient-list [patient]="patient"></patient-list>
-      </div>
-    </div>-->
-    <!--    <div class="ui divided relaxed items">
-      <div *ngFor="let patient of entities" class="item">
-        <patient-list class="middle aligned content" [patient]="patient"></patient-list>
-      </div>
-    </div>-->
-    <!--<div class="ui animated relaxed divided list">
-      <div *ngFor="let patient of entities" class="item">
-        <div class="content">
-          <div class="header">
-            <patient-list [patient]="patient"></patient-list>
-          </div>
+    <div class="ui tall stacked very padded segment">
+      <div class="ui stackable two column divided grid container">
+        <div class="six wide column">
+          <h3>Name</h3>
+        </div>
+        <div class="five wide column">
+          <h3>Next Appointment</h3>
+        </div>
+        <div class="five wide column">
+          <h3>Action</h3>
         </div>
       </div>
-    </div>-->
-    <div class="ui tall stacked padded segment">
       <sui-accordion [closeOthers]="false">
         <sui-accordion-panel *ngFor="let patient of entities">
           <div title>
             <div class="ui stackable two column divided grid container">
               <div class="six wide column">
-                <div class="ui two column grid container">
-                  <div class="one wide column">
-                    <i class="dropdown icon"></i>
-                  </div>
-                  <div class="thirteen wide column">
-                    <patient-name [patient]="patient"></patient-name>
-                  </div>
-                </div>
+                <patient-name [patient]="patient"></patient-name>
               </div>
               <div class="five wide column">
                 <patient-date [patient]="patient"></patient-date>
               </div>
               <div class="five wide column">
-                <patient-action [patient]="patient"></patient-action>
+                <patient-action [patient]="patient" (action)="patientAct($event)"></patient-action>
               </div>
             </div>
           </div>
           <div content>
-            <p>This is the final panel.</p>
+            <patient-update *ngIf="patientAction == 'update'" [patient]="patient"></patient-update>
+            <patient-del *ngIf="patientAction == 'del'" [patient]="patient" (del)="cancel($event)"></patient-del>
           </div>
         </sui-accordion-panel>
       </sui-accordion>
     </div>
-
-
-    <table class="ui small selectable table">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Date Joined</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let patient of entities">
-          <td>
-            <patient-name [patient]="patient"></patient-name>
-          </td>
-          <td>
-            <patient-date [patient]="patient"></patient-date>
-          </td>
-          <td>
-            <patient-action [patient]="patient"></patient-action>
-          </td>
-        </tr>
-      </tbody>
-    </table>
   </div>
 </div>
 
-<!--<div class="ui raised very padded text container segment">-->
-<!--</div>-->
-<!--<div class="ui relaxed grid">
-  <div class="three column row">
-    <div class="column"></div>
-    <div class="column">
-      <div class="ui fluid category search">
-        <div class="ui icon input">
-          <patient-search (searchEvent)="searchEvent($event)">
-          </patient-search>
-          <i class="search icon"></i>
-        </div>
-      </div>
-    </div>
-    <div class="column"></div>
-  </div>
-      <div class="three column row">
-      <div class="mobile only column">
-        <div class="ui mini pagination menu">
-          <div *ngFor="let a of alpha; let i = index">
-            <alpha-menu *ngIf="menuTest(i)==0" [alpha]="a" [index]="i" (alphaFilter)="filterByAlpha($event)">
-            </alpha-menu>
-          </div>
-        </div>
-      </div>
-      <div class="mobile only column">
-        <div class="ui mini pagination menu">
-          <div *ngFor="let a of alpha; let i = index">
-            <alpha-menu *ngIf="menuTest(i)==1" [alpha]="a" [index]="i" (alphaFilter)="filterByAlpha($event)">
-            </alpha-menu>
-          </div>
-        </div>
-      </div>
-      <div class="mobile only column">
-        <div class="ui mini pagination menu">
-          <div *ngFor="let a of alpha; let i = index">
-            <alpha-menu *ngIf="menuTest(i)==2" [alpha]="a" [index]="i" (alphaFilter)="filterByAlpha($event)">
-            </alpha-menu>
-          </div>
-        </div>
-        <div class="mobile only column">
-          <div class="ui mini pagination menu">
-            <div *ngFor="let a of alpha; let i = index">
-              <alpha-menu *ngIf="menuTest(i)==3" [alpha]="a" [index]="i" (alphaFilter)="filterByAlpha($event)">
-              </alpha-menu>
-            </div>
-          </div>
-        </div>
-        <div class="ui computer only column">
-          <div class="ui mini pagination menu">
-            <alpha-menu *ngFor="let a of alpha; let i = index" [alpha]="a" [index]="i" (alphaFilter)="filterByAlpha($event)">
-            </alpha-menu>
-          </div>
-        </div>
-        <div class="ui tablet only column">
-          <div class="ui mini pagination menu">
-            <div *ngFor="let a of alpha; let i = index">
-              <alpha-menu *ngIf="i<13" [alpha]="a" [index]="i" (alphaFilter)="filterByAlpha($event)">
-              </alpha-menu>
-            </div>
-          </div>
-        </div>
-        <div class="ui tablet only column">
-          <div class="ui mini pagination menu">
-            <div *ngFor="let a of alpha; let i = index">
-              <alpha-menu *ngIf="i>=13" [alpha]="a" [index]="i" (alphaFilter)="filterByAlpha($event)">
-              </alpha-menu>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  <div class="six column row">
-    <div class="column"></div>
-    <div class="column"></div>
-    <div class="column">
-      <div class="ui fluid vertical animated large button" tabindex="0" [routerLink]="['../new/patient']">
-        <div class="hidden content">Add New Patient </div>
-        <div class="visible content">
-          <i class="large icons">
-          <i class="user icon"></i>
-          <i class="red corner plus icon"></i>
-          </i>
-        </div>
-      </div>
-    </div>
-    <div class="column"></div>
-    <div class="column"></div>
-    <div class="column"></div>
-  </div>
-  <div class="eight column row">
-    <div class="two wide column"></div>
-    <div class="twelve wide column">
-      <table class="ui small celled striped selectable table">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Date Joined</th>
-            <th>E-mail</th>
-            <th></th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let patient of entities">
-            <td>
-              <patient-name [patient]="patient"></patient-name>
-            </td>
-            <td>
-              <patient-date [patient]="patient"></patient-date>
-            </td>
-            <td></td>
-            <td></td>
-            <td>
-              <patient-action [patient]="patient"></patient-action>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="two wide column"></div>
-  </div>
-</div>-->

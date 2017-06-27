@@ -5,10 +5,10 @@ import { CityName } from './../../../models/city-names';
 import { Patient } from './../../../models/patient';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { PatientService } from './../../../services/patient.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-patient-update',
+  selector: 'patient-update',
   templateUrl: './patient-update.component.html',
   styleUrls: ['./patient-update.component.css'],
   providers: [PatientService]
@@ -16,7 +16,7 @@ import { Component, OnInit } from '@angular/core';
 export class PatientUpdateComponent implements OnInit {
 
   private patientForm: FormGroup
-  private patient: Patient
+  @Input() patient: Patient
   private cityName: CityName
   private ssiType: Ssi
   private months: Month
@@ -28,7 +28,6 @@ export class PatientUpdateComponent implements OnInit {
     this.buttonClass = 'ui disabled button'
     this.days = new Day()
     this.months = new Month()
-    this.patient = new Patient()
     this.cityName = new CityName()
     this.ssiType = new Ssi()
     this.createForm()
@@ -81,11 +80,17 @@ export class PatientUpdateComponent implements OnInit {
     this.onValueChanged() // (re)set validation messages now
   }
 
-  public pushPatient() {
+  public updatePatient() {
     const formModel = this.patientForm.value
-    const _patient = new Patient()
-    _patient.firstName = formModel.firstName
-    _patient.lastName = formModel.lastName
+    console.log(formModel)
+    console.log(this.patient)
+    let _patient = this.patient
+    if (formModel.firstName !== '') {
+      _patient.firstName = formModel.firstName
+    }
+    if (formModel.lastName !== '') {
+      _patient.lastName = formModel.lastName
+    }
     if (formModel.cin) {
       _patient.cin = formModel.cin
     }
@@ -128,7 +133,7 @@ export class PatientUpdateComponent implements OnInit {
     if (formModel.ssiNum) {
       _patient.ssiNum = formModel.ssiNum
     }
-    this.patientService.create(_patient).subscribe(data => {
+    this.patientService.update(_patient).subscribe(data => {
       console.log(`${data} successfully added`)
     })
     
