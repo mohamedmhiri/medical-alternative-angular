@@ -5,7 +5,7 @@ import { CityName } from './../../../models/city-names';
 import { Patient } from './../../../models/patient';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { PatientService } from './../../../services/patient.service';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'patient-update',
@@ -17,6 +17,7 @@ export class PatientUpdateComponent implements OnInit {
 
   private patientForm: FormGroup
   @Input() patient: Patient
+  @Output() update = new EventEmitter<string>()
   private cityName: CityName
   private ssiType: Ssi
   private months: Month
@@ -136,6 +137,7 @@ export class PatientUpdateComponent implements OnInit {
     this.patientService.update(_patient).subscribe(data => {
       console.log(`${data} successfully added`)
     })
+    this.update.emit('')
     
   }
 

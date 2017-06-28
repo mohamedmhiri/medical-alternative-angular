@@ -5,7 +5,7 @@ import { CityName } from './../../../models/city-names';
 import { PatientService } from './../../../services/patient.service';
 import { Patient } from './../../../models/patient';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Component, OnInit, AfterViewChecked, DoCheck } from '@angular/core';
+import { Component, OnInit, AfterViewChecked, DoCheck, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'patient-add',
@@ -22,6 +22,7 @@ export class PatientAddComponent implements OnInit, DoCheck {
   private months: Month
   private days: Day
   private buttonClass: string
+  @Output() add = new EventEmitter<string>()
   constructor(private fb: FormBuilder, private patientService: PatientService) {}
 
   ngOnInit() {
@@ -131,6 +132,7 @@ export class PatientAddComponent implements OnInit, DoCheck {
     this.patientService.create(_patient).subscribe(data => {
       console.log(`${data} successfully added`)
     })
+    this.add.emit('')
     
   }
 

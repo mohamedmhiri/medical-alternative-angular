@@ -92,7 +92,7 @@
       </div>
     </div>
     <div *ngIf="add == 'insert'" class="ui raised segment">
-      <patient-add ></patient-add>
+      <patient-add (add)="postAdd()"></patient-add>
     </div>
     <br>
     <br>
@@ -124,8 +124,9 @@
             </div>
           </div>
           <div content>
-            <patient-update *ngIf="patientAction == 'update'" [patient]="patient"></patient-update>
+            <patient-update *ngIf="patientAction == 'update'" (update)="postUpdate()" [patient]="patient"></patient-update>
             <patient-del *ngIf="patientAction == 'del'" [patient]="patient" (del)="cancel($event)"></patient-del>
+            <patient-view *ngIf="patientAction == 'view'" [patient]="patient"></patient-view>
           </div>
         </sui-accordion-panel>
       </sui-accordion>

@@ -1,3 +1,56 @@
-<p>
-  patient-view works!
-</p>
+<div class="ui centered link cards">
+  <div class="card">
+    <div class="content">
+      <div class="header">{{patient.firstName}} {{patient.lastName}}</div>
+      <div class="meta">
+        <a>CIN: {{patient.cin}}</a>
+      </div>
+      <div class="description">
+        <i class="mail square icon" *ngIf="patient.email != ''"></i>
+        <p *ngIf="patient.email != ''">
+          {{patient.email}}
+        </p>
+        <i class="call square icon" *ngIf="patient.gsm != ''"></i>
+        <p *ngIf="patient.gsm != ''">
+          {{patient.gsm}}
+        </p>
+        <p *ngIf="patient.gsm2 != ''">
+          {{patient.gsm2}}
+        </p>
+      </div>
+    </div>
+    <div class="extra content">
+      <span *ngIf="patient.birthday != ''" class="right floated">
+        Born in {{patient.birthday}}/{{patient.birthmonth}}/{{patient.birthyear}}
+      </span>
+      <span *ngIf="patient.gender != ''">
+        <i *ngIf="patient.gender == 'male'" class="male icon"></i>
+        <i *ngIf="patient.gender == 'female'" class="female icon"></i>
+          Sexe: {{patient.gender}}
+      </span>
+    </div>
+  </div>
+  <div *ngIf="testGeneralInfo() == 'yes'" class="card">
+    <div class="content">
+      <div class="header">{{patient.firstName}} {{patient.lastName}}</div>
+      <div class="meta">
+        <span class="date">Coworker</span>
+      </div>
+      <div class="description">
+        Molly is a personal assistant living in Paris.
+      </div>
+    </div>
+    <div class="extra content">
+      <span class="right floated">
+              Joined in 2011
+            </span>
+      <span>
+              <i class="user icon"></i>
+              35 Friends
+            </span>
+    </div>
+   <!-- <div class="ui bottom attached button">
+      <i class="add icon"></i> Update Consultation
+    </div>-->
+  </div>
+</div>

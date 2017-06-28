@@ -22,6 +22,10 @@ const ROUTES = [
       component: PatientsComponent
     },
     {
+      path: 'patients/view',
+      component: PatientViewComponent
+    },
+    {
       path: 'stats',
       component: StatsComponent
     },

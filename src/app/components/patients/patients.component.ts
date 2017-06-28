@@ -82,9 +82,12 @@ export class PatientsComponent implements OnInit {
   public addForm(): void {
     this.add = 'insert'
   }
-  public collapseAddForm() {
-    
-  }
   
+  public postAdd (): string {
+    return this.add = ''
+  }
+  public postUpdate (): string {
+    return this.patientAction = ''
+  }
 
 }
