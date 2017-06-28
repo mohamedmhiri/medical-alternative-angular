@@ -40,4 +40,8 @@ export class PatientViewComponent implements OnInit {
     return this.antecedant = 'update'
   }
 
+  public antecedantDel(): string {
+    return this.antecedant = 'del'
+  }
+
 }

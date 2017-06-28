@@ -68,11 +68,10 @@
             </div>
           </div>
         </div>
-        <div class="ui bottom attached button" >
-        </div>
       </div>
       <div class="card">
         <antecedant-update [antecedant]="antecedant" *ngIf="antecedant == 'update'"></antecedant-update>
+        <antecedant-del [antecedant]="antecedant" *ngIf="antecedant == 'del'"></antecedant-del>
       </div>
     </div>
   </div>
