@@ -14,8 +14,16 @@ export class PatientViewComponent implements OnInit {
   ngOnInit() {
   }
 
-  public testGeneralInfo(): string {
-    if ( (this.patient.country !== '') || (this.patient.city !== '') || (this.patient.address !== '') || (this.patient.ssiNum !== '') || (this.patient.ssiType !== '')) {
+  public testHome(): string {
+    if ( (this.patient.country !== '') || (this.patient.city !== '') || (this.patient.address !== '') ) {
+      return 'yes'
+    } else {
+      return 'no'
+    }
+  }
+
+  public testSsi(): string {
+    if ((this.patient.ssiNum !== '') || (this.patient.ssiType !== '')) {
       return 'yes'
     } else {
       return 'no'

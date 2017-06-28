@@ -5,7 +5,7 @@ import { PatientAddComponent } from './../../components/patients/patient-add/pat
 import { AppointmentsComponent } from './../../components/appointments/appointments.component';
 import { DoctorsComponent } from './../../components/doctors/doctors.component';
 import { TestsComponent } from './../../components/tests/tests.component';
-import { AntecedantComponent } from './../../components/antecedant/antecedant.component';
+import { AntecedantsComponent } from './../../components/antecedants/antecedants.component';
 import { StatsComponent } from './../../components/stats/stats.component';
 import { PatientsComponent } from './../../components/patients/patients.component';
 import { NgModule } from '@angular/core';
@@ -31,7 +31,7 @@ const ROUTES = [
     },
     {
       path: 'antecedant',
-      component: AntecedantComponent
+      component: AntecedantsComponent
     },
     {
       path: 'test',

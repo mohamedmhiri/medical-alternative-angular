@@ -17,11 +17,25 @@
         <p *ngIf="patient.gsm2 != ''">
           {{patient.gsm2}}
         </p>
+        <i class="home icon" *ngIf="testHome() == 'yes'"></i>
+        <p *ngIf="patient.address != ''">
+          Address: {{patient.address}}
+        </p>
+        <p *ngIf="patient.city != ''">
+          City: {{patient.city}}
+        </p>
+        <div *ngIf="patient.country != ''">
+          <p *ngIf="patient.country == 'tn'">Country: Tunisia</p>
+          <p *ngIf="patient.country != 'tn'">Country: {{patient.country}}</p>
+        </div>
+        <p *ngIf="testSsi() == 'yes'">
+          SSI Type: {{patient.ssiType}} <br>SSI ID: {{patient.ssiNum}}
+        </p>
       </div>
     </div>
     <div class="extra content">
       <span *ngIf="patient.birthday != ''" class="right floated">
-        Born in {{patient.birthday}}/{{patient.birthmonth}}/{{patient.birthyear}}
+        Born {{patient.birthday}}/{{patient.birthmonth}}/{{patient.birthyear}} in {{patient.birthCity}}
       </span>
       <span *ngIf="patient.gender != ''">
         <i *ngIf="patient.gender == 'male'" class="male icon"></i>
@@ -30,27 +44,20 @@
       </span>
     </div>
   </div>
-  <div *ngIf="testGeneralInfo() == 'yes'" class="card">
-    <div class="content">
-      <div class="header">{{patient.firstName}} {{patient.lastName}}</div>
-      <div class="meta">
-        <span class="date">Coworker</span>
+  <div *ngIf="patient.antecedants.length > 0 ">
+    <div *ngFor="let antecedant of patient.antecedants" class="card">
+      <div class="content">
+        <div class="header">Medical Observation</div>
+        <div class="description">
+          <p *ngIf="antecedant.type">Type: {{antecedant.type}}</p>
+          <p *ngIf="antecedant.medicals">Medicals: {{antecedant.medicals}}</p>
+          <p *ngIf="antecedant.surgical">Surgical &amp; Gynecological: {{antecedant.surgical}}</p>
+          <p *ngIf="antecedant.treatment">Description: {{antecedant.treatment}}</p>
+        </div>
       </div>
-      <div class="description">
-        Molly is a personal assistant living in Paris.
+      <div class="ui bottom attached button">
+        <i class="write icon"></i> Update Antecedant
       </div>
     </div>
-    <div class="extra content">
-      <span class="right floated">
-              Joined in 2011
-            </span>
-      <span>
-              <i class="user icon"></i>
-              35 Friends
-            </span>
-    </div>
-   <!-- <div class="ui bottom attached button">
-      <i class="add icon"></i> Update Consultation
-    </div>-->
   </div>
 </div>

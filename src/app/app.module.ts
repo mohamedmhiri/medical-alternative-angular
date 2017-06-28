@@ -20,9 +20,11 @@ import { StoreModule } from '@ngrx/store';
 import { authReducer } from './reducers/auth';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
+    
   ],
   imports: [
     BrowserModule,
