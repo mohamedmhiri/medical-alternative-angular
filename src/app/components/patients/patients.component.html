@@ -83,7 +83,7 @@
   </div>
   <div class="ui raised very padded text container segment">
     <div class="ui fluid vertical animated large button" tabindex="0" (click)="addForm()">
-      <div class="hidden content">Add New Patient </div>
+      <div class="hidden content">Add Patient </div>
       <div class="visible content">
         <i class="large icons">
           <i class="user icon"></i>
@@ -108,7 +108,7 @@
           <h3>Action</h3>
         </div>
       </div>
-      <sui-accordion [closeOthers]="false">
+      <sui-accordion [closeOthers]="true">
         <sui-accordion-panel *ngFor="let patient of entities">
           <div title>
             <div class="ui stackable two column divided grid container">

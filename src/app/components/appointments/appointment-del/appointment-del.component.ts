@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-appointment-del',
+  selector: 'appointment-del',
   templateUrl: './appointment-del.component.html',
   styleUrls: ['./appointment-del.component.css']
 })

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-availability-update',
+  selector: 'availability-update',
   templateUrl: './availability-update.component.html',
   styleUrls: ['./availability-update.component.css']
 })

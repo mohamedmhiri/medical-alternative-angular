@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-availabilities',
+  selector: 'availabilities',
   templateUrl: './availabilities.component.html',
   styleUrls: ['./availabilities.component.css']
 })

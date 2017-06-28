@@ -33,7 +33,7 @@ const colors: any = {
 };
 
 @Component({
-  selector: 'app-appointments',
+  selector: 'appointments',
   templateUrl: './appointments.component.html',
   styleUrls: ['./appointments.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,

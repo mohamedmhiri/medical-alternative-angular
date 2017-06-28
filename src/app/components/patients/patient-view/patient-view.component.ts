@@ -8,10 +8,12 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class PatientViewComponent implements OnInit {
 
+  private antecedant: string
   @Input() patient: Patient
   constructor() { }
 
   ngOnInit() {
+    this.antecedant = ''
   }
 
   public testHome(): string {
@@ -28,6 +30,14 @@ export class PatientViewComponent implements OnInit {
     } else {
       return 'no'
     }
+  }
+
+  public antecedantAdd(): string {
+    return this.antecedant = 'add'
+  }
+
+  public antecedantUpdate(): string {
+    return this.antecedant = 'update'
   }
 
 }

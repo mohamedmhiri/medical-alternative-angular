@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-decision-update',
+  selector: 'decision-update',
   templateUrl: './decision-update.component.html',
   styleUrls: ['./decision-update.component.css']
 })
