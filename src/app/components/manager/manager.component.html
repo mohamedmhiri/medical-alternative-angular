@@ -1,6 +1,63 @@
-<!--<app-login *ngIf="!auth.isAuthenticated()"></app-login>
--->
-<div class="ui top inverted attached demo menu">
+<div class="ui four column grid">
+  <div class="widescreen only ten wide column">
+  </div>
+  <div class="widescreen only six wide column">
+  </div>
+  <div class="large screen only six wide column">
+  </div>
+  <div class="large screen only ten wide column">
+  </div>
+  <div class="tablet only mobile only eight wide column">
+  </div>
+  <div class="tablet only mobile only eight wide column">
+  </div>
+  <div class="mobile only sixteen wide column">
+  </div>
+  <div class="computer only two column row">
+    <div class="column">
+    </div>
+    <div class="column">
+    </div>
+  </div>
+  <div class="tablet only column">
+  </div>
+  <div class="tablet only column">
+  </div>
+  <div class="tablet only column">
+  </div>
+  <div class="tablet only column">
+  </div>
+  <div class="widescreen only ten wide column">
+  </div>
+  <div class="widescreen only six wide column">
+  </div>
+  <div class="large screen only six wide column">
+  </div>
+  <div class="large screen only ten wide column">
+  </div>
+  <div class="tablet only mobile only eight wide column">
+  </div>
+  <div class="tablet only mobile only eight wide column">
+  </div>
+  <div class="mobile only sixteen wide column">
+  </div>
+  <div class="computer only two column row">
+    <div class="column">
+    </div>
+    <div class="column">
+    </div>
+  </div>
+  <div class="tablet only column">
+  </div>
+  <div class="tablet only column">
+  </div>
+  <div class="tablet only column">
+  </div>
+  <div class="tablet only column">
+  </div>
+  
+</div>
+<!--<div class="ui fixed inverted menu">
     <a class="item" (click)="sidebar.toggle()">
         <i class="sidebar icon"></i> Menu
     </a>
@@ -33,4 +90,22 @@
         </div>
     </sui-sidebar-sibling>
 </sui-sidebar-container>
+<app-footer></app-footer>-->
+<div class="ui fixed inverted pointing menu">
+  <a class="item" routerLink='stats'> <!--<i class="line chart icon"></i>-->Statistics</a>
+  <a class="item" routerLink='patients'> <!--<i class="users icon"></i>-->Patients</a>
+  <a class="item" routerLink='doctors'> <!--<i class="doctor icon"></i>-->Doctors</a>
+  <a class="item" routerLink='appointments'> <!--<i class="calendar icon"></i>-->Rendez-vous</a>
+  <div class="right menu">
+        <div class="ui dropdown item" suiDropdown autoClose="disabled"><i class="user icon"></i>
+            Account <i class="dropdown icon"></i>
+            <div class="menu" suiDropdownMenu>
+                <a class="item" (click)="logout()">
+                    <i class="sign out icon"></i>Logout
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<router-outlet></router-outlet>
 <app-footer></app-footer>

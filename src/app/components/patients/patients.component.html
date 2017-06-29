@@ -81,7 +81,7 @@
       </div>
     </div>
   </div>
-  <div class="ui raised very padded text container segment">
+  <!--<div class="ui raised very padded text container segment">
     <div class="ui fluid vertical animated large button" tabindex="0" (click)="addForm()">
       <div class="hidden content">Add Patient </div>
       <div class="visible content">
@@ -131,6 +131,29 @@
         </sui-accordion-panel>
       </sui-accordion>
     </div>
+  </div>-->
+  <div class="ui tall stacked very padded segment">
+    <table class="ui small celled striped selectable table">
+      <thead>
+        <tr class="center aligned">
+          <th>Name</th>
+          <th>Date Joined</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let patient of entities" class="center aligned">
+          <td>
+            <patient-name [patient]="patient"></patient-name>
+          </td>
+          <td>
+            <patient-date [patient]="patient"></patient-date>
+          </td>
+          <td>
+            <patient-action [patient]="patient"></patient-action>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>
-

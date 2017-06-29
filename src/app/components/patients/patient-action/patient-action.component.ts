@@ -1,6 +1,7 @@
 import { Patient } from './../../../models/patient';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-
+/*import {SuiModalService, TemplateModalConfig, ModalTemplate} from 'ng2-semantic-ui'
+import {SuiModal, ComponentModalConfig, ModalSize} from "ng2-semantic-ui"*/
 @Component({
   selector: 'patient-action',
   templateUrl: './patient-action.component.html',

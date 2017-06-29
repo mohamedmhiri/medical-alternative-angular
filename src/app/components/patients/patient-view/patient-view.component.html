@@ -44,36 +44,34 @@
       </span>
     </div>
   </div>
-  <div *ngIf="patient.antecedants.length > 0 ">
+  <div *ngIf="patient.antecedants.length == 0 ">
     <div *ngFor="let antecedant of patient.antecedants">
       <div class="ui centered link cards">
-      <div class="card">
-        <div class="content">
-          <div class="header">Medical Observation</div>
-          <div class="description">
-            <p *ngIf="antecedant.type">Type: {{antecedant.type}}</p>
-            <p *ngIf="antecedant.medicals">Medicals: {{antecedant.medicals}}</p>
-            <p *ngIf="antecedant.surgical">Surgical &amp; Gynecological: {{antecedant.surgical}}</p>
-            <p *ngIf="antecedant.treatment">Description: {{antecedant.treatment}}</p>
-          </div>
-        </div>
-        <div class="extra content">
-          <div class="ui two buttons">
-            <div class="ui basic button" (click)="antecedantUpdate()">
-              <i class="write icon"></i>
-              Update Antecedant
-            </div>
-            <div class="ui basic red button" (click)="antecedantDel()">
-              <i class="trash icon"></i>
-              Delete Antecedant
+        <div class="card">
+          <div class="content">
+            <div class="header">Medical Observation</div>
+            <div class="description">
+              <p *ngIf="antecedant.type">Type: {{antecedant.type}}</p>
+              <p *ngIf="antecedant.medicals">Medicals: {{antecedant.medicals}}</p>
+              <p *ngIf="antecedant.surgical">Surgical &amp; Gynecological: {{antecedant.surgical}}</p>
+              <p *ngIf="antecedant.treatment">Description: {{antecedant.treatment}}</p>
             </div>
           </div>
+          <div class="extra content">
+            <div class="ui two buttons">
+              <div class="ui basic button" (click)="antecedantUpdate()">
+                <i class="write icon"></i> Update Antecedant
+              </div>
+              <div class="ui basic red button" (click)="antecedantDel()">
+                <i class="trash icon"></i> Delete Antecedant
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="card">
-        <antecedant-update [antecedant]="antecedant" *ngIf="antecedant == 'update'"></antecedant-update>
-        <antecedant-del [antecedant]="antecedant" *ngIf="antecedant == 'del'"></antecedant-del>
-      </div>
+        <div class="card">
+          <antecedant-update [antecedant]="antecedant" *ngIf="antecedant == 'update'"></antecedant-update>
+          <antecedant-del [antecedant]="antecedant" *ngIf="antecedant == 'del'"></antecedant-del>
+        </div>
       </div>
     </div>
   </div>
@@ -82,9 +80,11 @@
       Add Antecedant
     </div>
   </div>
-  <div *ngIf="patient.antecedants.length == 0 ">
-    <div *ngIf="antecedant == 'add'" class="card">
-      <antecedant-add ></antecedant-add>
+  <div *ngIf="antecedant == 'add'" class="card">
+    <div class="content">
+      <div class="description">
+        <antecedant-add></antecedant-add>
+      </div>
     </div>
   </div>
 </div>
