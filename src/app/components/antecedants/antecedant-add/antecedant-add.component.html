@@ -1,3 +1,26 @@
-<p>
-  antecedant-add works!
-</p>
+<form class="ui form" [formGroup]="antecedantForm">
+    <h2 class="ui dividing header">Add Antecedant</h2>
+    <div class="field">
+        <label>Type</label>
+        <select class="ui fluid search selection dropdown" name="type" formControlName="type">
+          <i class="dropdown icon"></i>
+          <option value="Personel Antecedant">Personel Antecedant</option>
+          <option value="Family Antecedant">Family Antecedant</option>
+        </select>
+    </div>
+    <div class="field">
+        <label>Medicals</label>
+        <textarea rows="2" style="margin-top: 0px; margin-bottom: 0px; height: 58px;" name="medicals" formControlName="medicals"></textarea>
+    </div>
+    <div class="field">
+        <label>Treatments</label>
+        <textarea rows="2" style="margin-top: 0px; margin-bottom: 0px; height: 58px;" name="treatment" formControlName="treatment"></textarea>
+    </div>
+    <div class="field">
+        <label>Surgical &amp; Gynecological</label>
+        <textarea rows="2" style="margin-top: 0px; margin-bottom: 0px; height: 58px;" name="surgical" formControlName="surgical"></textarea>
+    </div>
+    
+    <div class="{{buttonClass}}" tabindex="0" (click)="pushAntecedant()">Add Antecedant
+    </div>
+</form>

@@ -46,6 +46,7 @@
   </div>
   <div *ngIf="patient.antecedants.length > 0 ">
     <div *ngFor="let antecedant of patient.antecedants">
+      <div class="ui centered link cards">
       <div class="card">
         <div class="content">
           <div class="header">Medical Observation</div>
@@ -73,15 +74,17 @@
         <antecedant-update [antecedant]="antecedant" *ngIf="antecedant == 'update'"></antecedant-update>
         <antecedant-del [antecedant]="antecedant" *ngIf="antecedant == 'del'"></antecedant-del>
       </div>
+      </div>
     </div>
   </div>
   <div *ngIf="patient.antecedants.length == 0 ">
-    <br><br>
-    <div class="ui bottom attached button" tabindex="0" (click)="antecedantAdd()">
+    <div class="ui button" tabindex="0" (click)="antecedantAdd()">
       Add Antecedant
     </div>
-    <div class="card">
-      <antecedant-add *ngIf="antecedant == 'add'"></antecedant-add>
+  </div>
+  <div *ngIf="patient.antecedants.length == 0 ">
+    <div *ngIf="antecedant == 'add'" class="card">
+      <antecedant-add ></antecedant-add>
     </div>
   </div>
 </div>
