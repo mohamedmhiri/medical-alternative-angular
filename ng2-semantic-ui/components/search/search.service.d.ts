@@ -1,0 +1,33 @@
+export declare type LookupFn<T> = (query: string) => Promise<T[]> | Promise<T>;
+export declare type QueryLookupFn<T> = (query: string) => Promise<T[]>;
+export declare type ItemLookupFn<T, U> = (query: string, initial: U) => Promise<T>;
+export declare type ItemsLookupFn<T, U> = (query: string, initial: U[]) => Promise<T[]>;
+export declare class SearchService<T> {
+    private _options;
+    private _optionsLookup;
+    private _optionsField;
+    options: T[];
+    optionsLookup: LookupFn<T>;
+    readonly queryLookup: QueryLookupFn<T>;
+    readonly hasItemLookup: boolean;
+    itemLookup<U>(initial: U): Promise<T>;
+    itemsLookup<U>(initial: U[]): Promise<T[]>;
+    optionsField: string;
+    private _results;
+    private _resultsCache;
+    readonly results: T[];
+    private _query;
+    allowEmptyQuery: boolean;
+    searchDelay: number;
+    private _searchDelayTimeout;
+    private _isSearching;
+    readonly query: string;
+    readonly isSearching: boolean;
+    constructor(allowEmptyQuery?: boolean);
+    updateQueryDelayed(query: string, callback?: (err?: Error) => void): void;
+    updateQuery(query: string, callback?: (err?: Error) => void): void;
+    private updateResults(results);
+    private toRegex(query);
+    highlightMatches(text: string): string;
+    private reset();
+}
