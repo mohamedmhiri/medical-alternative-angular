@@ -7,7 +7,7 @@
 
 # dependencies
 /node_modules
-
+/ng2-semantic-ui
 # IDEs and editors
 /.idea
 .project
